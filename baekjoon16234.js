@@ -1,46 +1,10 @@
-// const fs = require("fs");
-// const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 
-// const [N, L, R] = input.shift().split(" ").map(Number);
-// const array = input.map((i) => {
-//     return i.split(" ").map(Number);
-// });
-
-
-
-
-
-// const N = 2;
-// const L = 20;
-// const R = 50;
-
-// let array = ["50 30",
-//     "20 40"];
-
-//     const N = 4;
-// const L = 10;
-// const R = 50;
-
-// let array = [
-//     "10 100 20 90",
-//     "80 100 60 70",
-//     "70 20 30 40",
-//     "50 20 100 10"
-// ];
-
-const N = 3;
-const L = 5;
-const R = 10;
-
-let array = [
-    "10 15 20",
-    "20 30 25",
-    "40 22 10"]
-
-array = array.map((el) => {
-    return el.split(" ").map(Number)
-})
-
+const [N, L, R] = input.shift().split(" ").map(Number);
+const array = input.map((i) => {
+    return i.split(" ").map(Number);
+});
 
 let result = 0;
 let boolean = true;
