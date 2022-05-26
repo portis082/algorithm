@@ -10,7 +10,9 @@ const linkSet = input.map((el) => {
 
 console.log(linkSet)
 
-// const stack = [1];
+const stack = [1];
+
+const current = stack.pop();
 
 // linkSet.map((el) => {
 //     if(stack.includes(el[0]) && !(stack.includes(el[1]))) {
