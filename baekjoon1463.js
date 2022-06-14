@@ -1,2 +1,5 @@
 const fs = require("fs");
-const array = fs.readFileSync("test.txt").toString().trim().split("\n");
+const input = fs.readFileSync("test.txt").toString().trim().split("\n");
+
+const N = Number(input[0]);
+console.log(input)
