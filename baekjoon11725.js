@@ -1,7 +1,7 @@
 const fs = require("fs");
 let input = fs.readFileSync("test.txt").toString().trim().split("\n");
 
-const N = input.shift();
+const N = input[0];
 
 input = input.map((el) => {
     return el.split(" ").map(Number);
