@@ -3,10 +3,10 @@ const input = fs.readFileSync("test.txt").toString().trim().split("\n");
 input.shift();
 
 array = input.sort((a, b) => {
-    if(a.split(" ")[0] === b.split(" ")[0]) {
-        return a.split(" ")[1] - b.split(" ")[1];
+    if(Number(a.split(" ")[0]) === Number(b.split(" ")[0])) {
+        return Number(a.split(" ")[1]) - Number(b.split(" ")[1]);
     } else {
-        return a.split(" ")[0] - b.split(" ")[0];
+        return Number(a.split(" ")[0]) - Number(b.split(" ")[0]);
     }
 })
 
