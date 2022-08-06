@@ -1,21 +1,18 @@
 const fs = require("fs");
 const input = fs.readFileSync("test.txt").toString().trim().split("\n");
 
-let n = Number(input[0]);
-let count = 0;
+const N = Number(input[0]);
+const result = [0, 0];
 
-while(n !== 1) {
-    console.log(n);
-    if(n%3 === 0){
-        n = n/3;
-    } else if(n%3 === 1 && n%2 !== 0 || n%3 === 1 && ((n-1)%3)%3 === 0) {
-        n = n-1;       
-    } else if(n%2 === 0) {
-        n = n/2;
-    } else {
-        n = n-1;
+for(let i=2; i<=N; i++) {
+    const array = [result[i-1]];
+    if(i%3 === 0) {
+        array.push(result[i/3]);
     }
-    count++;
+    if(i%2 === 0) {
+        array.push(result[i/2]);
+    }
+    const min = Math.min(...array);
+    result.push(min+1);
 }
-
-console.log(count);
+console.log(result[N]);
