@@ -4,7 +4,7 @@ const input = fs.readFileSync("test.txt").toString().trim().split("\n");
 const string = input.shift();
 const N = Number(input.shift());
 const result = [];
-const prefixSum = [];
+const prefixSumObj = {};
 
 const array = input.map((el) => {
     const element = el.split(" ").map((innerEl, idx) => {
@@ -17,19 +17,23 @@ const array = input.map((el) => {
     return element;
 });
 
-let count = 0;
-for(let i=0; i<string.length; i++) {
-    if(string[i] === array[0][0]) {
-        count++;
-    }
-    prefixSum.push(count);
-}
-
 array.forEach((el) => {
+    if(!(el[0] in prefixSumObj)) {
+        let count = 0;
+        const prefixSum = [];
+        for(let i=0; i<string.length; i++) {
+            if(string[i] === el[0]) {
+                count++;
+            }
+            prefixSum.push(count);
+        }
+        prefixSumObj[el[0]] = prefixSum;
+    }
+
     if(el[1] === 0) {
-        result.push(prefixSum[el[2]]);
+        result.push(prefixSumObj[el[0]][el[2]]);
     } else {
-        result.push(prefixSum[el[2]] - prefixSum[el[1]-1]);
+        result.push(prefixSumObj[el[0]][el[2]] - prefixSumObj[el[0]][el[1]-1]);
     }
 });
 console.log(result.join("\n"));
